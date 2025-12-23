@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | J & S TIES COLLECTIONS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #7fa3d9; 
+            --secondary-color: #5e93c9; 
+            --dark: #2c2c2c;
+            --cream: #f9f5f0;
+            --light-text: #ffffff;
+            --gray: #e0e0e0;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark) 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .logo-img {
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        
+        .logo-text {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 24px;
+        }
+        
+        .logo-text span {
+            font-weight: 400;
+            font-size: 18px;
+        }
+        
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+        
+        .nav-menu a:hover, .nav-menu a.active {
+            color: var(--primary-color);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: var(--shadow);
+            border-radius: 5px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 100;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu li {
+            margin: 0;
+        }
+        
+        .dropdown-menu a {
+            color: var(--dark);
+            display: block;
+            padding: 10px 15px;
+            border-bottom: 1px solid var(--gray);
+        }
+        
+        .dropdown-menu a:hover {
+            background: var(--cream);
+            color: var(--secondary-color);
+        }
+        
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Contact Hero */
+        .contact-hero {
+            background: linear-gradient(135deg, var(--secondary-color), var(--dark));
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .contact-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .contact-hero p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Contact Content */
+        .contact-content {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h2 {
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .contact-info > p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #666;
+        }
+        
+        .contact-details {
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: var(--cream);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            width: 30px;
+            text-align: center;
+        }
+        
+        .contact-item-content h3 {
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-item-content p {
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .contact-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-btn {
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .contact-btn.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .contact-btn.whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .contact-btn.phone {
+            background: var(--primary-color);
+            color: var(--dark);
+        }
+        
+        .contact-btn.phone:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .contact-btn.sms {
+            background: #34B7F1;
+            color: white;
+        }
+        
+        .contact-btn.sms:hover {
+            background: #1280c1;
+            transform: translateY(-2px);
+        }
+        
+        .social-contact {
+            margin-top: 40px;
+        }
+        
+        .social-contact h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            color: var(--dark);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .contact-form {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-form h2 {
+            color: var(--dark);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+        
+        .submit-btn {
+            background: var(--primary-color);
+            color: var(--dark);
+            padding: 15px 30px;
+            border-radius: 25px;
+            border: none;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(128, 0, 32, 0.3);
+        }
+        
+        .direct-contact {
+            text-align: center;
+            margin-top: 30px;
+            padding: 25px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .direct-contact h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .direct-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .direct-btn {
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .direct-btn.whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .direct-btn.whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        .direct-btn.phone {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .direct-btn.phone:hover {
+            background: var(--dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Business Hours */
+        .business-hours {
+            background: var(--cream);
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-family: 'Cinzel', serif;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .hours-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .hours-card i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .hours-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .hours-list {
+            text-align: left;
+        }
+        
+        .hours-list div {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .hours-list div:last-child {
+            border-bottom: none;
+        }
+        
+        .day {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .time {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .faq-question {
+            background-color: var(--cream);
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background-color: #f0e6d5;
+        }
+        
+        .faq-question h4 {
+            font-size: 18px;
+            margin: 0;
+            color: var(--secondary-color);
+        }
+        
+        .faq-answer {
+            background-color: white;
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px 25px;
+            max-height: 200px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark) 100%);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+        
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background: white;
+                width: 80%;
+                height: 100vh;
+                transition: var(--transition);
+                box-shadow: var(--shadow);
+                padding: 20px;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu ul {
+                flex-direction: column;
+            }
+            
+            .nav-menu li {
+                margin: 10px 0;
+            }
+            
+            .nav-menu a {
+                color: var(--dark);
+            }
+            
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: var(--cream);
+                margin-top: 10px;
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .contact-actions {
+                flex-direction: column;
+            }
+            
+            .contact-btn {
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .direct-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .direct-btn {
+                width: 200px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="logo1.jpg" alt="J & S TIES COLLECTIONS" class="logo-img">
+                <span class="logo-text">J & S <span>COLLECTIONS</span></span>
+            </a>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li class="dropdown">
+                        <a href="#">Collections <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="slippers.html">SLIPPERS</a></li>
+                            <li><a href="panties.html">PANTIES</a></li>
+                            <li><a href="boxershorts.html">MEN UNDERWEAR</a></li>
+                            <li><a href="upcomingproducts.html">UPCOMING PRODUCTS</a></li>                           
+                        </ul>
+                    </li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with J & S TIES COLLECTIONS. Multiple ways to reach us!</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-content">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>We're here to help you find the perfect products. Choose your preferred way to contact us - we're just a click away!</p>
+                    
+                    <div class="contact-details">
+                        <!-- WhatsApp Contact -->
+                        <div class="contact-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <div class="contact-item-content">
+                                <h3>WhatsApp</h3>
+                                <p>Fast responses, product inquiries, orders</p>
+                                <div class="contact-actions">
+                                    <a href="https://wa.me/233598010501" class="contact-btn whatsapp" target="_blank">
+                                        <i class="fab fa-whatsapp"></i> +233 598 010 501
+                                    </a>
+                                    <a href="https://wa.me/233538958181" class="contact-btn whatsapp" target="_blank">
+                                        <i class="fab fa-whatsapp"></i> +233 538 958 181
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Phone Contact -->
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-item-content">
+                                <h3>Phone Call</h3>
+                                <p>Call us directly for immediate assistance</p>
+                                <div class="contact-actions">
+                                    <a href="tel:233598010501" class="contact-btn phone">
+                                        <i class="fas fa-phone"></i> +233 598 010 501
+                                    </a>
+                                    <a href="tel:233538958181" class="contact-btn phone">
+                                        <i class="fas fa-phone"></i> +233 538 958 181
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- SMS Contact -->
+                        <div class="contact-item">
+                            <i class="fas fa-sms"></i>
+                            <div class="contact-item-content">
+                                <h3>Text Message</h3>
+                                <p>Send us a quick text for simple queries</p>
+                                <div class="contact-actions">
+                                    <a href="sms:233598010501" class="contact-btn sms">
+                                        <i class="fas fa-sms"></i> +233 598 010 501
+                                    </a>
+                                    <a href="sms:233538958181" class="contact-btn sms">
+                                        <i class="fas fa-sms"></i> +233 538 958 181
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Location -->
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-item-content">
+                                <h3>Our Location</h3>
+                                <p>Accra-Dansoman, Ghana</p>
+                                <div class="contact-actions">
+                                    <a href="https://maps.google.com/?q=Accra-Dansoman,Ghana" class="contact-btn" style="background: var(--dark); color: white;" target="_blank">
+                                        <i class="fas fa-directions"></i> Get Directions
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-contact">
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="https://instagram.com/dfwjosie7" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://snapchat.com/rashida254079" target="_blank"><i class="fab fa-snapchat"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h2>Send Us a Message</h2>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="e.g., 0598010501" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="location">Your Location</label>
+                            <input type="text" id="location" name="location" placeholder="Where are you located?">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="item">Product Interest</label>
+                            <select id="item" name="item">
+                                <option value="">Select a product category</option>
+                                <option value="slippers">Slippers</option>
+                                <option value="panties">Panties</option>
+                                <option value="boxershorts">Men Underwear</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your inquiry..." required></textarea>
+                        </div>
+                        
+                        <button type="button" class="submit-btn" id="whatsappBtn">
+                            <i class="fab fa-whatsapp"></i> Send via WhatsApp
+                        </button>
+                    </form>
+                    
+                    <div class="direct-contact">
+                        <h4>Prefer direct contact?</h4>
+                        <div class="direct-buttons">
+                            <a href="https://wa.me/233598010501" class="direct-btn whatsapp" target="_blank">
+                                <i class="fab fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="tel:233598010501" class="direct-btn phone">
+                                <i class="fas fa-phone"></i> Call Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Hours -->
+    <section class="business-hours">
+        <div class="container">
+            <div class="section-title">
+                <h2>Business Hours</h2>
+                <p>When you can reach us</p>
+            </div>
+            
+            <div class="hours-grid">
+                <div class="hours-card">
+                    <i class="fas fa-store"></i>
+                    <h3>Store Hours</h3>
+                    <div class="hours-list">
+                        <div>
+                            <span class="day">Monday - Friday</span>
+                            <span class="time">9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div>
+                            <span class="day">Saturday</span>
+                            <span class="time">9:00 AM - 5:00 PM</span>
+                        </div>
+                        <div>
+                            <span class="day">Sunday</span>
+                            <span class="time">Closed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hours-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Customer Support</h3>
+                    <div class="hours-list">
+                        <div>
+                            <span class="day">Phone & WhatsApp</span>
+                            <span class="time">Mon-Sat, 9AM-6PM</span>
+                        </div>
+                        <div>
+                            <span class="day">Text Messages</span>
+                            <span class="time">24/7</span>
+                        </div>
+                        <div>
+                            <span class="day">Response Time</span>
+                            <span class="time">Within 2 hours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our products and services</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How long does delivery take?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Standard delivery takes 1-2 business days within Accra. For other regions, delivery may take 3-5 business days.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What is your return policy?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We do not offer return policy! Personalized items cannot be returned unless there is a manufacturing defect.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>How can I track my order?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Once your order is shipped, you will receive a tracking number via SMS. You can use this to track your package on the delivery app (UBER, YANGO, BOLT).</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Do you offer wholesale prices?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer wholesale pricing for bulk orders. Please contact us directly via WhatsApp or phone call to discuss wholesale options.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="logo1.jpg" alt="J & S TIES COLLECTIONS" class="logo-img">
+                        <span class="logo-text">J & S <span>COLLECTIONS</span></span>
+                    </div>
+                    <p>Quality products crafted with attention to detail and customer satisfaction in mind.</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/dfwjosie7" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://snapchat.com/rashida254079" target="_blank"><i class="fab fa-snapchat"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="slippers.html">Slippers</a></li>
+                        <li><a href="panties.html">Panties</a></li>
+                        <li><a href="boxershorts.html">Men Underwear</a></li>
+                        <li><a href="upcomingproducts.html">Upcoming Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Accra-Dansoman</li>
+                        <li><i class="fas fa-phone"></i> +233 598 010 501</li>
+                        <li><i class="fas fa-phone"></i> +233 538 958 181</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 J & S TIES COLLECTION. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // WhatsApp Integration - SIMPLIFIED AND FIXED
+        function sendToWhatsApp() {
+            console.log("sendToWhatsApp function called"); // Debug log
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const location = document.getElementById('location').value;
+            const item = document.getElementById('item').value;
+            const message = document.getElementById('message').value;
+            
+            // Validate required fields
+            if (!name || !phone || !message) {
+                alert('Please fill in all required fields (Name, Phone, and Message)');
+                return false;
+            }
+            
+            // Use your WhatsApp number
+            const whatsappNumber = "233598010501"; // Your number: 0598010501
+            
+            // Create WhatsApp message
+            let whatsappMessage = ".%0A%0A";
+            whatsappMessage += "Name: " + name + "%0A";
+            whatsappMessage += "My Phone: " + phone + "%0A";
+            
+            if (location) {
+                whatsappMessage += "My Location: " + location + "%0A";
+            }
+            
+            if (item && item !== "") {
+                const itemText = document.getElementById('item').options[document.getElementById('item').selectedIndex].text;
+                whatsappMessage += "I'm interested in: " + itemText + "%0A";
+            }
+            
+            if (message) {
+                whatsappMessage += "Message: " + message + "%0A";
+            }
+            
+            whatsappMessage += "%0APlease contact me to complete my order. Thank you!";
+            
+            // Create WhatsApp URL
+            const whatsappURL = "https://wa.me/" + whatsappNumber + "?text=" + whatsappMessage;
+            
+            console.log("Opening WhatsApp URL:", whatsappURL); // Debug log
+            
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            return false; // Prevent form submission
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Page loaded, initializing WhatsApp button"); // Debug log
+            
+            // Add click event to WhatsApp button
+            const whatsappBtn = document.getElementById('whatsappBtn');
+            if (whatsappBtn) {
+                whatsappBtn.addEventListener('click', function(e) {
+                    console.log("WhatsApp button clicked"); // Debug log
+                    e.preventDefault();
+                    sendToWhatsApp();
+                });
+            } else {
+                console.error("WhatsApp button not found!");
+            }
+            
+            // Also handle form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    sendToWhatsApp();
+                });
+            }
+            
+            // FAQ functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Mobile menu functionality
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            }
+            // Mobile dropdown functionality
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                link.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        dropdown.classList.toggle('active');
+                    }
+                });
+            });
+        });
+
+        // Test function to check if WhatsApp is working
+        function testWhatsApp() {
+            const testURL = "https://wa.me/233598010501?text=Test%20message%20from%20J%20%26%20S%20TIES%20COLLECTIONS";
+            window.open(testURL, '_blank');
+            console.log("Test WhatsApp URL:", testURL);
+        }
+
+        // Add a simple test button for debugging (you can remove this later)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create a test button (hidden by default)
+            const testBtn = document.createElement('button');
+            testBtn.textContent = "Test WhatsApp";
+            testBtn.style.position = 'fixed';
+            testBtn.style.bottom = '10px';
+            testBtn.style.right = '10px';
+            testBtn.style.zIndex = '1000';
+            testBtn.style.padding = '10px';
+            testBtn.style.background = '#25D366';
+            testBtn.style.color = 'white';
+            testBtn.style.border = 'none';
+            testBtn.style.borderRadius = '5px';
+            testBtn.style.cursor = 'pointer';
+            testBtn.addEventListener('click', testWhatsApp);
+            document.body.appendChild(testBtn);
+        });
+    </script>
+</body>
+</html>
